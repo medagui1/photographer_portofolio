@@ -1,3 +1,10 @@
+a,
+img,
+span,
+button,
+ion-icon { display: block; }
+
+
 html {
   scroll-behavior: smooth;
   font-size: 10px;
@@ -51,4 +58,8 @@ body.active {
   100% {
     transform: translate(-50%, -50%) rotate(1turn);
   }
+}
+
+.nav-close-btn:is(:hover, :focus-visible) > span {
+  background-color: hsl(346, 100%, 58%);
 }
