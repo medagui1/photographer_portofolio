@@ -2,7 +2,9 @@ a,
 img,
 span,
 button,
-ion-icon { display: block; }
+ion-icon {
+  display: block;
+}
 
 
 html {
@@ -35,7 +37,7 @@ body.active {
   pointer-events: none;
 }
 
-.loading > * {
+.loading>* {
   position: absolute;
   top: 50%;
   left: 50%;
@@ -43,23 +45,54 @@ body.active {
   transition: 0.5s ease;
 }
 
-.loading.loaded > * {
+.loading.loaded>* {
   opacity: 0;
 }
 
 .circle {
-  animation: rotate360 1.5s linear infinite ;
+  animation: rotate360 1.5s linear infinite;
 }
 
 @keyframes rotate360 {
   0% {
     transform: translate(-50%, -50%) rotate(0);
   }
+
   100% {
     transform: translate(-50%, -50%) rotate(1turn);
   }
 }
 
-.nav-close-btn:is(:hover, :focus-visible) > span {
+.nav-close-btn:is(:hover, :focus-visible)>span {
   background-color: hsl(346, 100%, 58%);
+}
+
+.hero .wrapper .space {
+  padding: 0.1em;
+}
+
+.hero .wrapper :is(.in, .out) {
+  opacity: 0;
+  transform: scaleY(0);
+}
+
+.hero .strong.active .out {
+  opacity: 1;
+  transform: scaleY(1);
+  animation: textWave 0.2s ease reverse forwards;
+}
+
+.hero .wrapper .in {
+  animation: textWave 0.2s ease forwards;
+}
+
+@keyframes textWave {
+  0% {
+    opacity: 0;
+    transform: scaleY(0);
+  }
+  100% {
+    opacity: 1;
+    transform: scaleY(1);
+  }
 }
