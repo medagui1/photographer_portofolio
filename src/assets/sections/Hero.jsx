@@ -1,88 +1,72 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useRef } from "react";
 import { jobs } from "../constants/jobs";
 import { space } from "postcss/lib/list";
 
 const Hero = () => {
+  const letterBoxesRef = useRef([]);
+
   useEffect(() => {
-    const letterBoxes = document.querySelectorAll("[data-letter-effect]");
     let activeLetterBoxIndex = 0;
     let lastActiveLetterBoxIndex = 0;
-    let totalLetterBoxDelay = 0;
 
     const setLetterEffect = () => {
-      for (let i = 0; i < letterBoxes.length; i++) {
-        // set initial animation delay
-        let letterAnimationDelay = 0;
+      const letterBoxes = letterBoxesRef.current;
+      let totalLetterBoxDelay = 0;
 
-        // get all characters from the current letter box
-        const letters = letterBoxes[i].textContent.trim();
+      letterBoxes.forEach((letterBox, i) => {
+        // getting the job title trimmed
+        const letters = letterBox.dataset.text.trim();
 
-        // remove all the characters from the current letter box
-        letterBoxes[i].textContent = "";
+        // clear the existing content
+        letterBox.innerHTML = "";
 
-        // loop through all letters
-
-        for (let j = 0; j < letters.length; j++) {
-          // create a span
-
+        // looping through each letter
+        letters.split("").forEach((letter, j) => {
+          // creating a span
           const span = document.createElement("span");
 
-          // set animation delay on span
-          span.style.animationDelay = `${letterAnimationDelay}s`;
+          // each letter animation delay
+          span.style.animationDelay = `${j * 0.05}s`;
 
-          // set the 'in' class on the span, if current letter box is active
-          // otherwise class is 'out'
-          if (i === activeLetterBoxIndex) {
-            span.classList.add("in");
-          } else {
-            span.classList.add("out");
-          }
+          span.textContent = letter;
 
-          // pass current letter into span
-          span.textContent = letters[j];
+          span.className =
+            letter === " "
+              ? "space"
+              : i === activeLetterBoxIndex
+              ? "in"
+              : "out";
 
-          // add space class on span, when current letter contain space
-          if (letters[j] === " ") span.classList.add("space");
+          letterBox.appendChild(span);
+        });
 
-          // pass the span on current letter box
-          letterBoxes[i].appendChild(span);
-
-          // skip letterAnimationDelay when loop is in the last index
-          if (j >= letters.length - 1) break;
-
-          // otherwise update
-          letterAnimationDelay += 0.05;
-        }
-
-        // get total delay of active letter box
+        // if the current letterBox index = the activeLetterBoxIndex
         if (i === activeLetterBoxIndex) {
-          totalLetterBoxDelay = Number(letterAnimationDelay.toFixed(2));
-        }
+          totalLetterBoxDelay = letters.length * 0.05;
 
-        // add active class on last active letter box
-        if (i === lastActiveLetterBoxIndex) {
-          letterBoxes[i].classList.add("active");
+          letterBox.classList.add("active");
         } else {
-          letterBoxes[i].classList.remove("active");
+          letterBox.classList.remove("active");
         }
-      }
+      });
 
-      setTimeout(() => {
-        lastActiveLetterBoxIndex = activeLetterBoxIndex;
+      lastActiveLetterBoxIndex = activeLetterBoxIndex
+      activeLetterBoxIndex = (activeLetterBoxIndex + 1) % letterBoxes.length
 
-        // update activeLetterBoxIndex based on total letter boxes
-        activeLetterBoxIndex >= letterBoxes.length - 1
-          ? (activeLetterBoxIndex = 0)
-          : activeLetterBoxIndex++;
 
-        setLetterEffect();
-      }, (totalLetterBoxDelay * 1000) + 3000);
+      requestAnimationFrame(() => {
+        setTimeout(setLetterEffect, totalLetterBoxDelay * 1000 + 3000)
+      })
     };
 
-    // call the letter effect function after the window loaded
     window.addEventListener("load", setLetterEffect)
+
+    return () => {
+      window.removeEventListener("load", setLetterEffect)
+    }
   }, []);
 
+ 
   return (
     <main>
       <article>
@@ -108,8 +92,9 @@ const Hero = () => {
                 {jobs.map((job, index) => (
                   <strong
                     key={job}
+                    ref={(el) => (letterBoxesRef.current[index] = el)}
+                    data-text={job}
                     className="strong absolute top-0 left-[50%] translate-x-[-50%] w-[300px] font-[inherit] flex"
-                    data-letter-effect
                   >
                     {job}
                   </strong>
