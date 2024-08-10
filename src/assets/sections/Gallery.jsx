@@ -17,13 +17,14 @@ const Gallery = () => {
           ))}
         </ul>
 
-        <a href="#service" className="scroll-down">
+        <a href="#service" className="scroll-down w-[60px] h-[60px] grid place-content-center mx-auto mt-[55px] border-[1px] border-white-a15 border-solid rounded-circle duration-transition-2 hover:bg-radical-red focus-visible:bg-radical-red hover:border-radical-red focus-visible:border-radical-red">
           <img
             src="icons/scroll-down.svg"
             width="40"
             height="66"
             loading="lazy"
             alt="mouse scroll"
+            className="w-[22px] "
           />
         </a>
 

@@ -389,3 +389,20 @@ body.active {
     visibility: visible;
   }
 }
+
+.gallery-item:is(:hover, :focus-within) .gallery-card {
+  animation-play-state: paused;
+}
+
+.gallery .scroll-down {
+ animation: scrollDown 2.5s linear infinite alternate;
+}
+
+@keyframes scrollDown {
+  0% {
+    transform: translateY(-12px);
+  }
+  100% {
+    transform: translateY(12px);
+  }
+}
