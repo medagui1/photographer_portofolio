@@ -5,6 +5,7 @@ const GalleryCard = ({card}) => {
     <div className="gallery-card">
       <figure
         className="card-banner img-holder has-before"
+        style={{ '--width' : 450, '--height' : 625 }}
       >
         <img
           src={card.image}
