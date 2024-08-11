@@ -489,7 +489,11 @@ body.active {
   border-block-start: 1px solid var(--white_a9);
 }
 
-
+/*
+*
+************** Portfolio
+*
+*/
 
 .portfolio-card :is(.card-content, .btn-icon) {
   position: absolute;
@@ -498,4 +502,15 @@ body.active {
 
 .portfolio-card .btn-icon:is(:hover, :focus-visible) path {
   stroke: var(--white)
+}
+
+/*
+*
+************** Footer
+*
+*/
+
+.footer-bg::before {
+  inset: 0;
+  background-image: var(--gradient-2);
 }

@@ -8,18 +8,22 @@ import Category from "./assets/sections/Category";
 import About from "./assets/sections/About";
 import Service from "./assets/sections/Service";
 import Portfolio from "./assets/sections/Portfolio";
+import Footer from "./assets/sections/Footer";
 
 function App() {
   return (
     <>
-      <Preloading />
-      <Header />
-      <Hero />
-      <Gallery />
-      <Category />
-      <About />
-      <Service />
-      <Portfolio />
+      <main>
+        <Preloading />
+        <Header />
+        <Hero />
+        <Gallery />
+        <Category />
+        <About />
+        <Service />
+        <Portfolio />
+      </main>
+      <Footer />
     </>
   );
 }

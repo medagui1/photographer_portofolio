@@ -68,7 +68,6 @@ const Hero = () => {
 
  
   return (
-    <main>
       <article>
         {/********* Hero *********/}
         <section
@@ -114,7 +113,6 @@ const Hero = () => {
           />
         </section>
       </article>
-    </main>
   );
 };
 
