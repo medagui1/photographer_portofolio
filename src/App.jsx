@@ -7,6 +7,7 @@ import Gallery from "./assets/sections/Gallery";
 import Category from "./assets/sections/Category";
 import About from "./assets/sections/About";
 import Service from "./assets/sections/Service";
+import Portfolio from "./assets/sections/Portfolio";
 
 function App() {
   return (
@@ -18,6 +19,7 @@ function App() {
       <Category />
       <About />
       <Service />
+      <Portfolio />
     </>
   );
 }

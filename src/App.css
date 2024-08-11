@@ -488,3 +488,14 @@ body.active {
 .service-list>li:last-child {
   border-block-start: 1px solid var(--white_a9);
 }
+
+
+
+.portfolio-card :is(.card-content, .btn-icon) {
+  position: absolute;
+  z-index: 1;
+}
+
+.portfolio-card .btn-icon:is(:hover, :focus-visible) path {
+  stroke: var(--white)
+}
