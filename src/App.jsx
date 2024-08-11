@@ -5,6 +5,7 @@ import Header from "./assets/sections/Header";
 import Hero from "./assets/sections/Hero";
 import Gallery from "./assets/sections/Gallery";
 import Category from "./assets/sections/Category";
+import About from "./assets/sections/About";
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
       <Hero />
       <Gallery />
       <Category />
+      <About />
     </>
   );
 }

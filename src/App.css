@@ -424,3 +424,27 @@ body.active {
 .category-card:is(:hover, :focus-visible) .card-title {
   color: var(--white);
 }
+
+
+
+/*
+*
+************** About
+*
+*/
+
+.about .wrapper::before {
+  top: 10px;
+  left: 0px;
+  background-image: url('icons/about-quote.svg ');
+  background-repeat: no-repeat;
+  background-size: contain;
+  width: 20px;
+  height: 20px;
+}
+
+.about .section-text em {
+  color: var(--white);
+  font-weight: var(--fw-400);
+  text-decoration: underline;
+}
