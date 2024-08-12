@@ -9,6 +9,7 @@ import Service from "./assets/sections/Service";
 import Portfolio from "./assets/sections/Portfolio";
 import Footer from "./assets/sections/Footer";
 import BackToTop from "./assets/components/BackToTop";
+import CustomCursor from "./assets/components/CustomCursor";
 
 function App() {
   return (
@@ -25,6 +26,7 @@ function App() {
       </main>
       <Footer />
       <BackToTop />
+     <CustomCursor /> 
     </>
   );
 }
