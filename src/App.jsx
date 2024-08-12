@@ -1,4 +1,3 @@
-import { useState } from "react";
 import "./App.css";
 import Preloading from "./assets/sections/Preloading";
 import Header from "./assets/sections/Header";
@@ -9,6 +8,7 @@ import About from "./assets/sections/About";
 import Service from "./assets/sections/Service";
 import Portfolio from "./assets/sections/Portfolio";
 import Footer from "./assets/sections/Footer";
+import BackToTop from "./assets/components/BackToTop";
 
 function App() {
   return (
@@ -24,6 +24,7 @@ function App() {
         <Portfolio />
       </main>
       <Footer />
+      <BackToTop />
     </>
   );
 }
