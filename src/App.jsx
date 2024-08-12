@@ -10,8 +10,31 @@ import Portfolio from "./assets/sections/Portfolio";
 import Footer from "./assets/sections/Footer";
 import BackToTop from "./assets/components/BackToTop";
 import CustomCursor from "./assets/components/CustomCursor";
+import { useEffect } from "react";
 
 function App() {
+  useEffect(() => {
+    const revealElements = document.querySelectorAll("[data-reveal]");
+
+    const scrollReveal = () => {
+      revealElements.forEach((item, index) => {
+        const elementIsInScreen =
+          item.getBoundingClientRect().top < window.innerHeight / 1.15;
+        if (elementIsInScreen) {
+          item.classList.add("revealed");
+        } else {
+          item.classList.remove("revealed");
+        }
+      });
+    };
+
+    window.addEventListener("scroll", scrollReveal);
+
+    return () => {
+      window.removeEventListener("scroll", scrollReveal)
+    }
+  });
+
   return (
     <>
       <main>
@@ -26,7 +49,7 @@ function App() {
       </main>
       <Footer />
       <BackToTop />
-     <CustomCursor /> 
+      <CustomCursor />
     </>
   );
 }
