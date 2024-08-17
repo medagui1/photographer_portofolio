@@ -4,7 +4,7 @@ import AboutContent from "../components/AboutContent";
 const About = () => {
   return (
     <section className="section about" id="about" aria-label="about me">
-      <div className="container grid gap-[45px] ">
+      <div className="container grid gap-[45px] overflow-hidden">
         <AboutContent />
         <figure className="about-banner ps-[45px] relative" data-reveal='left'>
             <div className="img-holder has-before" style={{ '--width' : 512, "--height" : 684 }}>
