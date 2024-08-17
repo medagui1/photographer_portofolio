@@ -240,11 +240,11 @@ html {
   transition: var(--transition-3);
 }
 
-[data-reveal = 'left'] {
+[data-reveal='left'] {
   transform: translate(-50px, 0);
 }
 
-[data-reveal = "right"] {
+[data-reveal="right"] {
   transform: translate(50px, 0);
 }
 
@@ -533,4 +533,98 @@ body.active {
 .footer-bg::before {
   inset: 0;
   background-image: var(--gradient-2);
+}
+
+
+/*
+*
+************** Media queries
+*
+*/
+
+/*
+*********** Responsive for large than 575px screen
+*/
+
+@media (min-width : 575px) {
+  /*
+  ** CUSTOM PROPERTY
+  */
+
+  :root {
+
+    /*
+    * Spacing
+    */
+
+    --section-padding: 80px;
+
+  }
+
+  /*
+  **** REUSED STYLE
+  */
+
+  .container {
+    max-width: 540px;
+    width: 100%;
+    margin-inline: auto;
+  }
+
+  :is(.header, .gallery, .category, .portfolio) .container {
+    max-width: unset;
+  }
+
+  /*
+  **** HEADER
+  */
+
+  .navbar {
+    max-width: 500px;
+    right: -500px;
+  }
+
+  .navbar.active {
+    transform: translateX(-500px);
+  }
+
+    /*
+  **** GALLERY
+  */
+
+  .gallery-list {
+ grid-template-columns: repeat(2, 1fr);
+ column-gap: 25px;   
+  }
+
+  .gallery-card .btn-icon {
+    transform-origin: top right;
+    transform: scale(0);
+  }
+
+  .gallery-card:is(:hover, :focus-within) .btn-icon {
+    transform: scale(1);
+  }
+
+  .gallery-card :is(.card-title, .card-tag) {
+    transform: translateY(10px);
+    opacity: 0;
+    transition: var(--transition-2);
+
+  }
+
+  .gallery-card .card-tag {
+    transition-delay: 0.1s;
+  }
+
+  .gallery-card:is(:hover, :focus-within) :is(.card-title, .card-tag) {
+    transform: translateY(0);
+    opacity: 1;
+  }
+
+  .gallery [data-reveal] {
+    transform: translateY(0);
+    opacity: 1;
+  }
+
 }
