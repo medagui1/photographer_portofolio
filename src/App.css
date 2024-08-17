@@ -663,7 +663,8 @@ body.active {
     margin: 0;
   }
 
-  .copyright, .social-list {
+  .copyright,
+  .social-list {
     padding-block-end: 0;
   }
 
@@ -671,4 +672,54 @@ body.active {
     order: 1;
     justify-content: flex-end;
   }
+}
+
+/*
+* Responsive for large than 768px screens
+*/
+
+@media (min-width:768px) {
+  /*
+  * CUSTOM PROPERTY
+  */
+
+  :root {
+    /*
+    * Typography
+    */
+
+    --fs-3 : 4.5rem;
+  }
+
+  /*
+  * REUSED STYLE
+  */
+
+  .container {
+    max-width: 720px;
+  }
+
+  /*
+  * ABOUT
+  */
+
+  .about-banner {
+    max-width: 500px;
+    margin-inline: auto;
+  }
+
+  /*
+  * SERVICE
+  */
+
+  .service-card {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .service-card .card-subtitle {
+    margin-block-end: 15px;
+  }
+
 }
