@@ -20,6 +20,7 @@ const FooterTop = () => {
         <a
           href="#"
           className="btn-icon w-[60px] h-[60px] mx-auto hover:bg-radical-red"
+          data-reveal
         >
           <img
             src="icons/arrow-forward.svg"
