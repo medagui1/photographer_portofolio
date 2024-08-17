@@ -588,13 +588,13 @@ body.active {
     transform: translateX(-500px);
   }
 
-    /*
+  /*
   **** GALLERY
   */
 
   .gallery-list {
- grid-template-columns: repeat(2, 1fr);
- column-gap: 25px;   
+    grid-template-columns: repeat(2, 1fr);
+    column-gap: 25px;
   }
 
   .gallery-card .btn-icon {
@@ -625,6 +625,24 @@ body.active {
   .gallery [data-reveal] {
     transform: translateY(0);
     opacity: 1;
+  }
+
+
+  /*
+  **** CATEGORY
+  */
+
+  .category-item {
+    max-width: 235px;
+  }
+
+  /*
+  **** PORTFOLIO
+  */
+
+  .portfolio-list {
+    display: flex;
+    column-gap: 30px;
   }
 
 }
